@@ -15,16 +15,44 @@ var loadEvent = function() {
     
     for( var i = 0; i < schedule.hour.length; i++){
         createEvent(schedule.hour[i], schedule.eventMsg[i]);
-    }
-
-    
+    }   
 };
 
+// displays events respectively
 var createEvent = function(hour, message){
     console.log("inside createEvent");
-    var timeSlot = $("#"+hour);
-    var eventMsg = $("#"+hour+"-event")
-        .text(message);
-}
+    // var textArea = $("<textarea>")
+    //     .text(message);
+    
+    var eventMsg = $("#"+hour+"-event");
+
+    eventMsg.append(message);
+};
+
+
+// when an event box is clicked
+$(".event-msg").on("click", "textarea", function(){
+    console.log("Inside event meesage");
+    var text = $(this)
+        .text()
+        .trim();
+
+    var textInput = $("<textarea>")
+        .val(text);
+
+    $(this).replaceWith(textInput);
+    textInput.trigger("focus");
+});
+
+// save event when click outside
+$(".event-msg").on("blur", function() {
+    console.log("inside blur");
+    var eventMsg = $(this)
+        .val()
+        .trim();
+    
+});
+
+
 
 loadEvent();
