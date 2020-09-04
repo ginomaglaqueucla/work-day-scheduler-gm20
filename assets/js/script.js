@@ -31,26 +31,35 @@ var createEvent = function(hour, message){
 
 
 // when an event box is clicked
-$(".event-msg").on("click", "textarea", function(){
+$(".row").on("click", "textarea", function(){
     console.log("Inside event meesage");
+    
     var text = $(this)
         .text()
         .trim();
+    
+    var textInput = $("textarea")
+        .text(text);
 
-    var textInput = $("<textarea>")
-        .val(text);
+    
 
-    $(this).replaceWith(textInput);
-    textInput.trigger("focus");
+    
+
+    // var textInput = $("<textarea>")
+    //     .val(text);
+
+    // $(this).replaceWith(textInput);
+    // textInput.trigger("focus");
 });
 
 // save event when click outside
-$(".event-msg").on("blur", function() {
+$(".row").on("blur", "textarea", function() {
     console.log("inside blur");
-    var eventMsg = $(this)
-        .val()
+    var text = $(this)
+        .text()
         .trim();
-    
+    console.log(text);
+
 });
 
 
