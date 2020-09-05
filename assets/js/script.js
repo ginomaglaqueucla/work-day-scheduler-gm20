@@ -37,22 +37,17 @@ $(".row").on("click", "textarea", function(){
     var text = $(this)
         .text()
         .trim();
-    
-    var textInput = $("textarea")
-        .text(text);
 
-    
-
-    
 
     // var textInput = $("<textarea>")
-    //     .val(text);
+    //     .addClass("event-msg form-group col-md-8 list-group-item")
+    //     .text(text);
 
-    // $(this).replaceWith(textInput);
+    $(this).text(text);
     // textInput.trigger("focus");
 });
 
-// save event when click outside
+// when action happens outside of being inside the text area
 $(".row").on("blur", "textarea", function() {
     console.log("inside blur");
     var text = $(this)
@@ -64,13 +59,14 @@ $(".row").on("blur", "textarea", function() {
         .attr("id");
     
     var index = schedule.hour.indexOf(rowID);
+    console.log(text);
     
     schedule.eventMsg[index] = text;
-    console.log(rowID);
-    console.log(text);
-    console.log(schedule.hour.indexOf(rowID));
+});
 
-
+$(".row").on("click", "button", function(){
+    console.log("save");
+    localStorage.setItem("schedule", JSON.stringify(schedule));
 });
 
 
