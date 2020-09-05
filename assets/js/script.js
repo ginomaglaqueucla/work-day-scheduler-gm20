@@ -1,4 +1,5 @@
 var schedule = {};
+var currentDate;
 var loadEvent = function() {
     console.log("Hello");
     // pull local storage schedule
@@ -8,7 +9,7 @@ var loadEvent = function() {
     if(!schedule) {
         console.log("I'm empty");
         schedule = {
-            hour: ["9", "10", "11", "12", "1", "2", "3", "4", "5"],
+            hour: ["9", "10", "11", "12", "13", "14", "15", "16", "17"],
             eventMsg: ["", "", "", "", "" ,"", "", "", ""]
         };
     } 
@@ -19,6 +20,7 @@ var loadEvent = function() {
 };
 
 var loadDay = function() {
+    currentDate = moment();
     var currentDay = moment().format("dddd, MMMM Do YYYY");
     $("#currentDay").text(currentDay);
     console.log(currentDay);
@@ -44,13 +46,8 @@ $(".row").on("click", "textarea", function(){
         .text()
         .trim();
 
-
-    // var textInput = $("<textarea>")
-    //     .addClass("event-msg form-group col-md-8 list-group-item")
-    //     .text(text);
-
     $(this).text(text);
-    // textInput.trigger("focus");
+
 });
 
 // when action happens outside of being inside the text area
@@ -75,7 +72,28 @@ $(".row").on("click", "button", function(){
     localStorage.setItem("schedule", JSON.stringify(schedule));
 });
 
+var checkDue = function(){
+    loadDay();
+    var currentHour = parseInt(currentDate.format("H"));
+    // loop through each hour and check with current hour
+    for (var i = 0; i < schedule.hour.length; i++) {
+        var scheduleHour = parseInt(schedule.hour[i]);
+        var textAreaEl = $("#"+scheduleHour+"-event");
+        if(scheduleHour < currentHour){
+            console.log("grey");
+            textAreaEl.addClass("bg-secondary");
+        }
+        else if (scheduleHour === currentHour) {
+            textAreaEl.addClass("bg-danger");
+            console.log("red");
+        }
+        else if (scheduleHour > currentHour) {
+            textAreaEl.addClass("bg-success")
+            console.log("green");
+        }
+    }
+}
 
 
 loadEvent();
-loadDay();
+checkDue();
