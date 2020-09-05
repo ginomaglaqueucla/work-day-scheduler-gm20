@@ -8,14 +8,20 @@ var loadEvent = function() {
     if(!schedule) {
         console.log("I'm empty");
         schedule = {
-            hour: ["9", "10"],
-            eventMsg: ["", "World"]
+            hour: ["9", "10", "11", "12", "1", "2", "3", "4", "5"],
+            eventMsg: ["", "", "", "", "" ,"", "", "", ""]
         };
     } 
     
     for( var i = 0; i < schedule.hour.length; i++){
         createEvent(schedule.hour[i], schedule.eventMsg[i]);
     }   
+};
+
+var loadDay = function() {
+    var currentDay = moment().format("dddd, MMMM Do YYYY");
+    $("#currentDay").text(currentDay);
+    console.log(currentDay);
 };
 
 // displays events respectively
@@ -72,3 +78,4 @@ $(".row").on("click", "button", function(){
 
 
 loadEvent();
+loadDay();
