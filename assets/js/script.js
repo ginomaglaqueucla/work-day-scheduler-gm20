@@ -97,3 +97,7 @@ var checkDue = function(){
 
 loadEvent();
 checkDue();
+setInterval(function() {
+    console.log("checking every min!");
+    checkDue();
+}, 60 * 1000); // 60 * 1000 milsec
