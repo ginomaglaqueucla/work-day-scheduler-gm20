@@ -9,7 +9,7 @@ var loadEvent = function() {
         console.log("I'm empty");
         schedule = {
             hour: ["9", "10"],
-            eventMsg: ["Hello", "World"]
+            eventMsg: ["", "World"]
         };
     } 
     
@@ -56,9 +56,20 @@ $(".row").on("click", "textarea", function(){
 $(".row").on("blur", "textarea", function() {
     console.log("inside blur");
     var text = $(this)
-        .text()
+        .val()
         .trim();
+    
+    var rowID = $(this)
+        .closest(".row")
+        .attr("id");
+    
+    var index = schedule.hour.indexOf(rowID);
+    
+    schedule.eventMsg[index] = text;
+    console.log(rowID);
     console.log(text);
+    console.log(schedule.hour.indexOf(rowID));
+
 
 });
 
