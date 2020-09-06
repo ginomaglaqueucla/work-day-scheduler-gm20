@@ -26,13 +26,13 @@ Main Page
 
 Credits Changes/Commits by: ginomaglaqueucla - (https://github.com/ginomaglaqueucla/code-quiz-gm20.git)
 
-Applciation uses the following libraries:
-    - Starter code from: (https://github.com/coding-boot-camp/super-disco.git)
-    - Bootstrap
-    - Font Awesome
-    - Google Fonts
-    - JQuery
-    - Moment
+Application uses the following libraries:
+- Starter code from: (https://github.com/coding-boot-camp/super-disco.git)
+- Bootstrap
+- Font Awesome
+- Google Fonts
+- JQuery
+- Moment
 
 License MIT License
 
