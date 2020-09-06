@@ -12,10 +12,10 @@ Usage:
 Work Day Scheduler is a simple calendar application that allows a user to save events for each hour of the day.
 
 Features:
-    - User inputs/edit events in specific hourly timeslots
-    - Ability to save events, brower will load from local storage
-    - Color identifier for past, present, and/or future events 
-    - Application will recheck time stamps every minute to ensure user is presented with the most up to date information regarding event dues
+- User inputs/edit events in specific hourly timeslots
+- Ability to save events, brower will load from local storage
+- Color identifier for past, present, and/or future events 
+- Application will recheck time stamps every minute to ensure user is presented with the most up to date information regarding event dues
 
 
 Usage (Screenshots):
