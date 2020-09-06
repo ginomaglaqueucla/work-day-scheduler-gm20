@@ -81,14 +81,14 @@ var checkDue = function(){
         var textAreaEl = $("#"+scheduleHour+"-event");
         if(scheduleHour < currentHour){
             console.log("grey");
-            textAreaEl.addClass("bg-secondary");
+            textAreaEl.addClass("past");
         }
         else if (scheduleHour === currentHour) {
-            textAreaEl.addClass("bg-danger");
+            textAreaEl.addClass("present");
             console.log("red");
         }
         else if (scheduleHour > currentHour) {
-            textAreaEl.addClass("bg-success")
+            textAreaEl.addClass("future")
             console.log("green");
         }
     }
